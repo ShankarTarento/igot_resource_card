@@ -9,7 +9,6 @@ class ResourceCard extends StatelessWidget {
   final Widget mimeTypeIcon;
   final String sector;
   final String subSector;
-  final String resourceName;
   final String resourceDescription;
   final String creator;
   final Widget creatorLogo;
@@ -24,7 +23,6 @@ class ResourceCard extends StatelessWidget {
     this.mimeTypeIcon,
     this.posterImage,
     this.resourceDescription,
-    this.resourceName,
     this.sector,
     this.subSector,
     this.onTapCallBack,
@@ -35,7 +33,7 @@ class ResourceCard extends StatelessWidget {
     return InkWell(
       onTap: onTapCallBack,
       child: Container(
-        height: 365,
+        height: 361,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
@@ -76,7 +74,10 @@ class ResourceCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              mimeTypeIcon ?? const SizedBox(),
+                              SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: mimeTypeIcon ?? const SizedBox()),
                               const SizedBox(
                                 width: 3,
                               ),
