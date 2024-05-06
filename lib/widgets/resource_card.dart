@@ -75,8 +75,8 @@ class ResourceCard extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SizedBox(
-                                  width: 24,
-                                  height: 24,
+                                  width: 14,
+                                  height: 14,
                                   child: mimeTypeIcon ?? const SizedBox()),
                               const SizedBox(
                                 width: 3,
