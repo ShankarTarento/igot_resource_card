@@ -42,7 +42,7 @@ class ResourceCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 205,
+              height: 217,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
