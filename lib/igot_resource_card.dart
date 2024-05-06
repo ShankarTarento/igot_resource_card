@@ -1,3 +1,4 @@
 library igot_resource_card;
 
-export 'widgets/resource_card.dart';
+import 'package:igot_resource_card/widgets/resource_card.dart';
+export 'package:igot_resource_card/widgets/resource_card.dart';

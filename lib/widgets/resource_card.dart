@@ -47,17 +47,19 @@ class ResourceCard extends StatelessWidget {
               height: 205,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12)),
-                  image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: posterImage != null
-                          ? NetworkImage(posterImage)
-                          : const AssetImage(
-                              'assets/image_placeholder.jpg',
-                              package: "gyaan_karmayogi_resource_list",
-                            ))),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12)),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: posterImage != null
+                      ? NetworkImage(posterImage)
+                      : const AssetImage(
+                          'assets/image_placeholder.jpg',
+                          package: "gyaan_karmayogi_resource_list",
+                        ),
+                ),
+              ),
               child: mimeType != null
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
