@@ -97,7 +97,12 @@ class ResourceCard extends StatelessWidget {
                   : const SizedBox(),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(
+                left: 12.0,
+                right: 12,
+                top: 8,
+                bottom: 8,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -151,7 +156,7 @@ class ResourceCard extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 8,
+                    height: 12,
                   ),
                   name != null
                       ? Text(
@@ -165,7 +170,7 @@ class ResourceCard extends StatelessWidget {
                         )
                       : const SizedBox(),
                   const SizedBox(
-                    height: 8,
+                    height: 12,
                   ),
                   resourceDescription != null
                       ? Text(
@@ -179,7 +184,7 @@ class ResourceCard extends StatelessWidget {
                         )
                       : const SizedBox(),
                   const SizedBox(
-                    height: 8,
+                    height: 12,
                   ),
                   creator != null
                       ? Row(
