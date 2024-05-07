@@ -3,12 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_colors.dart';
 
 class ResourceCard extends StatelessWidget {
-  final String name;
+  final String resourceName;
   final String posterImage;
   final String mimeType;
   final Widget mimeTypeIcon;
-  final String sector;
-  final String subSector;
+  final List<String> tags;
   final String resourceDescription;
   final String creator;
   final Widget creatorLogo;
@@ -16,15 +15,14 @@ class ResourceCard extends StatelessWidget {
 
   const ResourceCard({
     Key key,
-    this.name,
+    this.resourceName,
     this.creator,
     this.creatorLogo,
     this.mimeType,
     this.mimeTypeIcon,
+    this.tags,
     this.posterImage,
     this.resourceDescription,
-    this.sector,
-    this.subSector,
     this.onTapCallBack,
   }) : super(key: key);
 
@@ -107,60 +105,41 @@ class ResourceCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    children: [
-                      sector != null
-                          ? Container(
-                              margin: const EdgeInsets.only(right: 8),
-                              padding: const EdgeInsets.only(
-                                  left: 8, right: 8, top: 6, bottom: 6),
-                              decoration: BoxDecoration(
-                                  color: const Color(0xffFEFAF4),
-                                  border:
-                                      Border.all(color: AppColors.primaryOne),
-                                  borderRadius: BorderRadius.circular(16)),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    sector,
-                                    style: GoogleFonts.lato(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
+                    children: tags != null
+                        ? List.generate(tags.length, (index) {
+                            return tags[index] != null
+                                ? Container(
+                                    margin: const EdgeInsets.only(right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8, top: 6, bottom: 6),
+                                    decoration: BoxDecoration(
+                                        color: const Color(0xffFEFAF4),
+                                        border: Border.all(
+                                            color: AppColors.primaryOne),
+                                        borderRadius:
+                                            BorderRadius.circular(16)),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          tags[index],
+                                          style: GoogleFonts.lato(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   )
-                                ],
-                              ),
-                            )
-                          : const SizedBox(),
-                      subSector != null
-                          ? Container(
-                              padding: const EdgeInsets.only(
-                                  left: 8, right: 8, top: 6, bottom: 6),
-                              decoration: BoxDecoration(
-                                  color: const Color(0xffFEFAF4),
-                                  border:
-                                      Border.all(color: AppColors.primaryOne),
-                                  borderRadius: BorderRadius.circular(16)),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    subSector,
-                                    style: GoogleFonts.lato(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          : const SizedBox()
-                    ],
+                                : const SizedBox();
+                          })
+                        : [const SizedBox()],
                   ),
                   const SizedBox(
                     height: 12,
                   ),
-                  name != null
+                  resourceName != null
                       ? Text(
-                          name,
+                          resourceName,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.lato(
